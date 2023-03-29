@@ -17,6 +17,27 @@
             string telefoJoker2 = Console.ReadLine();
             Console.WriteLine("\n3. Telefon Jokerinizi Giriniz: ");
             string telefonJoker3 = Console.ReadLine();
+
+            Console.Clear();
+            Console.WriteLine("Hoşgeldiniz " + isim + " " + soyisim);
+
+            Console.WriteLine("Kuralları biliyor musunuz ?");
+            char kuralCevap = char.Parse(Console.ReadLine());
+
+            if (kuralCevap != 'E')
+            {
+                Console.WriteLine("Kurallar: ajsgjsagja");
+            }
+
+            Console.WriteLine("Hazır mısınız ?");
+            char hazirCevap = char.Parse(Console.ReadLine());
+            if (hazirCevap != 'E')
+            {
+                Console.WriteLine("Hazir olmanız bekleniyor.");
+                Console.WriteLine("Hazır olduğunuzda Enter'a basınız.");
+                Console.ReadLine();
+            }
+
         }
     }
 }
