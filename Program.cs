@@ -14,7 +14,7 @@
             Console.WriteLine("\n1. Telefon Jokerinizi Giriniz: ");
             string telefonJoker1 = Console.ReadLine();
             Console.WriteLine("\n2. Telefon Jokerinizi Giriniz: ");
-            string telefoJoker2 = Console.ReadLine();
+            string telefonJoker2 = Console.ReadLine();
             Console.WriteLine("\n3. Telefon Jokerinizi Giriniz: ");
             string telefonJoker3 = Console.ReadLine();
 
@@ -68,15 +68,17 @@
             #endregion
 
             #region Soru Kalıbı
-
+            
             bool jokerHak = seyirciHak || yuzdeHak || telefonHak;
-
+            soruNoktasi:
             Console.Clear();
             Console.WriteLine(soruNo + "-)" + soru);
             Console.WriteLine("A) " + (!gizleA ? a : ""));
             Console.WriteLine("B) " + (!gizleB ? b : ""));
             Console.WriteLine("C) " + (!gizleC ? c : ""));
             Console.WriteLine("D) " + (!gizleD ? d : ""));
+
+            yanitNoktasi:
 
             Console.WriteLine("Cevabınızı giriniz veya");
             if (jokerHak)
@@ -85,6 +87,58 @@
             }
             Console.WriteLine("Çekilmek için R'ye basınız: ");
             char secim = char.Parse(Console.ReadLine());
+
+
+            if (secim == 'J')
+            {
+                if (!jokerHak)
+                { 
+                    Console.WriteLine("Joker hakkınız bitmiştir."); 
+                    goto yanitNoktasi;                
+                }
+
+                Console.WriteLine("1-) " + (seyirciHak ? "Seyirci" : ""));
+                Console.WriteLine("2-) " + (yuzdeHak ? "%50" : ""));
+                Console.WriteLine("3-) " + (telefonHak ? "Telefon" : ""));
+                Console.WriteLine("Şeçiminizi yapınız: ");
+                int jokerCevap = int.Parse(Console.ReadLine());
+
+                if (jokerCevap == 1)
+                {
+                    Console.WriteLine("A) %" + seyirciYuzdeA);
+                    Console.WriteLine("B) %" + seyirciYuzdeB);
+                    Console.WriteLine("C) %" + seyirciYuzdeC);
+                    Console.WriteLine("D) %" + seyirciYuzdeD);
+                    seyirciHak = false;
+                }
+
+                else if (jokerCevap == 2) 
+                {
+                    gizleB = true;
+                    gizleD = true;
+
+
+                    yuzdeHak = false;
+                    goto soruNoktasi;
+                }
+                
+                else if (jokerCevap == 3)
+                {
+                    Console.WriteLine("1-) " + telefonJoker1);
+                    Console.WriteLine("1-) " + telefonJoker2);
+                    Console.WriteLine("1-) " + telefonJoker3);
+                    Console.WriteLine("Kimi aramak istersiniz? : ");
+                    int telefonCevap = int.Parse (Console.ReadLine());
+                    if (soruNo <= 7 || telefonCevap == 3) Console.WriteLine("Cevap kesinlikte " + cevap);
+                    else if (soruNo == 2) Console.WriteLine("Emin Değilim. Ancak " + cevap + " veya A olduğunu düşünüyorum.");
+                    else if (soruNo == 1) Console.WriteLine("Bilemedim. Üzgünüm");
+                    telefonHak = false;
+                }
+                else Console.WriteLine("Bu joker daha önce kullanıldı.");
+
+                goto yanitNoktasi;
+            }
+
             #endregion
 
 
