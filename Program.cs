@@ -46,7 +46,7 @@
             int seyirciYuzdeA, seyirciYuzdeB, seyirciYuzdeC, seyirciYuzdeD;
             bool gizleA, gizleB, gizleC, gizleD;
             string soru,a,b,c,d;
-            string cevap;
+            char cevap;
 
             #region Soru Bilgileri
 
@@ -56,7 +56,7 @@
             b = "Cyberton";
             c = "Mars";
             d = "Vulcan";
-            cevap = c;
+            cevap = 'C';
             odul = 1000;
             baraj = 0;
 
@@ -67,8 +67,26 @@
             gizleC= false; gizleD= false;
             #endregion
 
+            #region Soru Kalıbı
 
-            
+            bool jokerHak = seyirciHak || yuzdeHak || telefonHak;
+
+            Console.Clear();
+            Console.WriteLine(soruNo + "-)" + soru);
+            Console.WriteLine("A) " + (!gizleA ? a : ""));
+            Console.WriteLine("B) " + (!gizleB ? b : ""));
+            Console.WriteLine("C) " + (!gizleC ? c : ""));
+            Console.WriteLine("D) " + (!gizleD ? d : ""));
+
+            Console.WriteLine("Cevabınızı giriniz veya");
+            if (jokerHak)
+            {
+                Console.WriteLine("Joker için J'ye,");
+            }
+            Console.WriteLine("Çekilmek için R'ye basınız: ");
+            char secim = char.Parse(Console.ReadLine());
+            #endregion
+
 
         }
     }
