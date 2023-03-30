@@ -24,24 +24,19 @@
             Console.WriteLine("Kuralları biliyor musunuz ?");
             char kuralCevap = char.Parse(Console.ReadLine());
 
-            if (kuralCevap != 'E')
-            {
-                Console.WriteLine("Kurallar: ajsgjsagja");
-            }
+            if (kuralCevap != 'E') Console.WriteLine("Kurallar: ajsgjsagja");
 
             Console.WriteLine("Hazır mısınız ?");
             char hazirCevap = char.Parse(Console.ReadLine());
+
             if (hazirCevap != 'E')
             {
                 Console.WriteLine("Hazir olmanız bekleniyor.");
                 Console.WriteLine("Hazır olduğunuzda Enter'a basınız.");
                 Console.ReadLine();
             }
-
-
             bool seyirciHak = true, yuzdeHak = true, telefonHak = true;
             int kasa = 0;
-
             int soruNo = 1, odul, baraj;
             int seyirciYuzdeA, seyirciYuzdeB, seyirciYuzdeC, seyirciYuzdeD;
             bool gizleA, gizleB, gizleC, gizleD;
@@ -49,7 +44,6 @@
             char cevap;
 
             #region Soru Bilgileri
-
             soruNo = 1;
             soru = "\"Kızıl Gezegen\" genellikle hangisi için yapılan bir benzetme olur?";
             a = "Kripton";
@@ -67,8 +61,7 @@
             gizleC= false; gizleD= false;
             #endregion
 
-            #region Soru Kalıbı
-            
+            #region Soru Kalıbı            
             bool jokerHak = seyirciHak || yuzdeHak || telefonHak;
             soruNoktasi:
             Console.Clear();
@@ -79,7 +72,6 @@
             Console.WriteLine("D) " + (!gizleD ? d : ""));
 
             yanitNoktasi:
-
             Console.WriteLine("Cevabınızı giriniz veya");
             if (jokerHak)
             {
@@ -87,7 +79,6 @@
             }
             Console.WriteLine("Çekilmek için R'ye basınız: ");
             char secim = char.Parse(Console.ReadLine());
-
 
             if (secim == 'J')
             {
@@ -111,22 +102,19 @@
                     Console.WriteLine("D) %" + seyirciYuzdeD);
                     seyirciHak = false;
                 }
-
                 else if (jokerCevap == 2) 
                 {
                     gizleB = true;
                     gizleD = true;
 
-
                     yuzdeHak = false;
                     goto soruNoktasi;
-                }
-                
+                }                
                 else if (jokerCevap == 3)
                 {
                     Console.WriteLine("1-) " + telefonJoker1);
-                    Console.WriteLine("1-) " + telefonJoker2);
-                    Console.WriteLine("1-) " + telefonJoker3);
+                    Console.WriteLine("2-) " + telefonJoker2);
+                    Console.WriteLine("3-) " + telefonJoker3);
                     Console.WriteLine("Kimi aramak istersiniz? : ");
                     int telefonCevap = int.Parse (Console.ReadLine());
                     if (soruNo <= 7 || telefonCevap == 3) Console.WriteLine("Cevap kesinlikte " + cevap);
@@ -152,7 +140,6 @@
                 }
                 goto soruNoktasi;
             }
-
             else if (secim != cevap)
             {
                 Console.WriteLine("Elendiniz, Kazandığınız Tutar: " + baraj + " TL");
@@ -165,8 +152,6 @@
             Console.WriteLine("\nSonraki soruya geçmek için Enter'a basınız.");
             Console.ReadLine();
             #endregion
-
-
         }
     }
 }
