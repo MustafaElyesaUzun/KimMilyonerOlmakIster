@@ -153,6 +153,13 @@
                 goto soruNoktasi;
             }
 
+            else if (secim != cevap)
+            {
+                Console.WriteLine("Elendiniz, Kazandığınız Tutar: " + baraj + " TL");
+                Console.WriteLine("Oyun Bitti");
+                Environment.Exit (0);
+            }
+
             #endregion
 
 
