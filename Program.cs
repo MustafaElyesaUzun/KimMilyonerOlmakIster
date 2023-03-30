@@ -38,6 +38,29 @@
                 Console.ReadLine();
             }
 
+
+            bool seyirciHak = true, yuzdeHak = true, telefonHak = true;
+            int kasa = 0;
+
+            int soruNo = 1, odul, baraj;
+            int seyirciYuzdeA, seyirciYuzdeB, seyirciYuzdeC, seyirciYuzdeD;
+            bool gizleA, gizleB, gizleC, gizleD;
+            string soru,a,b,c,d;
+            string cevap;
+
+            #region Soru Bilgileri
+
+            soruNo = 1;
+            soru = "\"Kızıl Gezegen\" genellikle hangisi için yapılan bir benzetme olur?";
+            a = "Kripton";
+            b = "Cyberton";
+            c = "Mars";
+            d = "Vulcan";
+            cevap = c;
+            odul = 1000;
+            baraj = 0;
+            #endregion
+
         }
     }
 }
