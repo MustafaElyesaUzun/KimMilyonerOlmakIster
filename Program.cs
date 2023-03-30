@@ -160,6 +160,10 @@
                 Environment.Exit (0);
             }
 
+            kasa = odul;
+            Console.WriteLine("Tebrikler, Kazandığınız Tutar: " + kasa + " TL");
+            Console.WriteLine("\nSonraki soruya geçmek için Enter'a basınız.");
+            Console.ReadLine();
             #endregion
 
 
